@@ -48,7 +48,13 @@ from docopt import docopt  # @:adhoc:@
 import echafaudage.tempita  # @:adhoc:@
 
 
-def copy_dir(source, dest, vars=None):
+def copy_dir(source, dest, vars=None, source_origin=None, ignores=None):
+    if source_origin is None:
+        source_origin = source
+
+    if ignores is None:
+        ignores = []
+
     if vars is None:
         vars = {}
 
@@ -61,10 +67,13 @@ def copy_dir(source, dest, vars=None):
 
     names = sorted(os.listdir(source))
     for name in names:
-        if name in ('scaffolding.json', '.git', '.hg'):
+        full_src = os.path.join(source, name)
+        if (
+            name in ('scaffolding.json', '.git', '.hg') or
+            full_src[len(source_origin):].lstrip('/') in (ignores)
+        ):
             continue
 
-        full_src = os.path.join(source, name)
         full_dest = os.path.join(dest, echafaudage.tempita.sub(name, **vars))
 
         if os.path.isfile(full_src):
@@ -89,7 +98,9 @@ def copy_dir(source, dest, vars=None):
             copy_dir(
                 full_src,
                 full_dest,
-                vars
+                vars,
+                source_origin,
+                ignores
             )
 
 
@@ -183,10 +194,16 @@ def main():
                 exec("""f = lambda vars: %s""" % v['lambda'])
                 vars[k] = f(vars)
 
+    if json_data and ('ignores' in json_data):
+        ignores = json_data['ignores']
+    else:
+        ignores = []
+
     copy_dir(
-        source=scaffolding_source,
-        dest=arguments['<TARGET>'],
-        vars=vars
+        source=os.path.abspath(scaffolding_source),
+        dest=os.path.abspath(arguments['<TARGET>']),
+        vars=vars,
+        ignores=ignores
     )
     if tmp_dir:
         shutil.rmtree(tmp_dir)
