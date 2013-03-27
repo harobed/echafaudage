@@ -4,3 +4,4 @@ include/
 lib/
 echafauder.egg-info/
 .Python
+tests/results/
