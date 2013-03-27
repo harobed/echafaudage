@@ -1,0 +1,6 @@
+*.pyc
+bin/
+include/
+lib/
+echafauder.egg-info/
+.Python
