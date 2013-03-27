@@ -7,7 +7,7 @@ You can directly erect scaffolding without installing nothing on your system :
 
     $ python -c "$(curl -fsSL https://raw.github.com/harobed/echafaudage/master/echafauder.py)" -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project
 
-Next *echafauder* ask some informations :
+Next *echafauder* ask some questions :
 
 ::
 
