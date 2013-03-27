@@ -20,7 +20,7 @@ looper you can get a better sense of the context.  Use like::
 """
 
 import sys
-from echafauder.compat3 import basestring_  # @:adhoc:@
+from echafaudage.compat3 import basestring_  # @:adhoc:@
 
 __all__ = ['looper']
 

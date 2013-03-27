@@ -5,9 +5,15 @@ You can directly erect scaffolding without installing nothing on your system :
 
 ::
 
-    $ python -c "$(curl -fsSL https://raw.github.com/harobed/echafauder/master/echafauder.py)" -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project
+    $ python -c "$(curl -fsSL https://raw.github.com/harobed/echafaudage/master/echafaudage.py)" -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project
 
-Next *echafauder* ask some questions :
+or more shortly :
+
+::
+
+    $ python -c "$(curl -fsSL http://git.io/PT9OkQ)" -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project
+
+Next *echafaudage* ask some questions :
 
 ::
 
@@ -24,24 +30,24 @@ Now your project is in ``/tmp/my_new_project/``
     bootstrap.py  devel-requirements.txt  my_project  requirements.txt  setup.py  tests  unittest.cfg
 
 
-You can also install "echafauder" on your system
-================================================
+You can also install "echafaudage" on your system
+==================================================
 
 ::
 
     $ pip install https://github.com/harobed/echafaudage/archive/master.zip
   
-And use ``echafauder`` like this :
+And use ``echafaudage`` like this :
 
 ::
 
-    $ echafauder -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project
+    $ echafaudage -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project
 
 You can also directly set some variable in command line :
 
 ::
 
-    $ echafauder -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project --vars project_name=my-project,version=1.0
+    $ echafaudage -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project --vars project_name=my-project,version=1.0
 
 
 See also

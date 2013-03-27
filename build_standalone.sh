@@ -1,2 +1,2 @@
 #!/bin/bash
-bin/adhoc.py --compile echafauder/main.py -o echafauder.py
+bin/adhoc.py --compile echafaudage/main.py -o echafaudage.py

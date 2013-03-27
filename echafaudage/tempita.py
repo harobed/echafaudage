@@ -37,8 +37,8 @@ from urllib import quote as url_quote
 import os
 import tokenize
 from cStringIO import StringIO
-from echafauder._looper import looper  # @:adhoc:@
-from echafauder.compat3 import PY3, bytes, basestring_, next, is_unicode, coerce_text  # @:adhoc:@
+from echafaudage._looper import looper  # @:adhoc:@
+from echafaudage.compat3 import PY3, bytes, basestring_, next, is_unicode, coerce_text  # @:adhoc:@
 
 __all__ = ['TemplateError', 'Template', 'sub', 'HTMLTemplate',
            'sub_html', 'html', 'bunch']

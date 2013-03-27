@@ -1,9 +1,6 @@
 # -*- coding: utf8 -*-
 # @:adhoc_run_time:@
-usage = """echafauder
-
-Usage:
-    echafauder [options] -s <scaffolding> [<TARGET>]
+usage = """Usage: echafaudage [options] -s <scaffolding> [<TARGET>]
 
 Arguments:
     TARGET where scaffolding will be created, by default it is "." (current directory)
@@ -20,15 +17,15 @@ Options:
 
 Example:
 
-    $ echafauder -s /path/to/directory/
+    $ echafaudage -s /path/to/directory/
 
     or
 
-    $ echafauder -s my_scaffolding.tar.gz
+    $ echafaudage -s my_scaffolding.tar.gz
 
     or
 
-    $ echafauder -s http://example.com/my_scaffolding.tar.gz
+    $ echafaudage -s http://example.com/my_scaffolding.tar.gz
 """
 
 import os
@@ -48,7 +45,7 @@ except NameError:
 
 import json
 from docopt import docopt  # @:adhoc:@
-import echafauder.tempita  # @:adhoc:@
+import echafaudage.tempita  # @:adhoc:@
 
 
 def copy_dir(source, dest, vars=None):
@@ -68,7 +65,7 @@ def copy_dir(source, dest, vars=None):
             continue
 
         full_src = os.path.join(source, name)
-        full_dest = os.path.join(dest, echafauder.tempita.sub(name, **vars))
+        full_dest = os.path.join(dest, echafaudage.tempita.sub(name, **vars))
 
         if os.path.isfile(full_src):
             if name.endswith('.tmpl'):
@@ -79,7 +76,7 @@ def copy_dir(source, dest, vars=None):
 
                 f = open(full_dest, 'wb')
                 f.write(
-                    echafauder.tempita.sub(content, **vars)
+                    echafaudage.tempita.sub(content, **vars)
                 )
                 f.close()
             else:

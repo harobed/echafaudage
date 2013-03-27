@@ -2,6 +2,6 @@
 bin/
 include/
 lib/
-echafauder.egg-info/
+echafaudage.egg-info/
 .Python
 tests/results/
