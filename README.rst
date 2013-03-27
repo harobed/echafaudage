@@ -1,9 +1,16 @@
-Quick start
-===========
+Example of use
+==============
+
+You can directly erect scaffolding without installing nothing on your system :
 
 ::
 
     $ python -c "$(curl -fsSL https://raw.github.com/harobed/echafaudage/master/echafauder.py)" -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project
+
+Next *echafauder* ask some informations :
+
+::
+
     mail : contact@stephane-klein.info
     version : 0.1.0
     package_name : my-project
@@ -29,6 +36,12 @@ And use ``echafauder`` like this :
 ::
 
     $ echafauder -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project
+
+You can also directly set some variable in command line :
+
+::
+
+    $ echafauder -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project --vars project_name=my-project,version=1.0
 
 
 See also
