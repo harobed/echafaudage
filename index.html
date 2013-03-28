@@ -1,0 +1,187 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Echafaudage &mdash; Echafaudage 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="static/flasky.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <link rel="top" title="Echafaudage 0.1.0 documentation" href="#" /> 
+  </head>
+  <body>
+  
+  
+  <div class=indexwrapper>
+  
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="echafaudage">
+<h1>Echafaudage<a class="headerlink" href="#echafaudage" title="Permalink to this headline"> </a></h1>
+<p id="subtitle"><strong>A scaffolding python tool without dependencies</strong></p><p>Features :</p>
+<ul class="simple">
+<li>erect and create scaffolding easily</li>
+<li>no dependency</li>
+<li>standalone file executable directly with <tt class="docutils literal"><span class="pre">python</span> <span class="pre">-c</span> <span class="pre">&quot;$(curl</span> <span class="pre">...)&quot;</span></tt></li>
+</ul>
+<p>Use case :</p>
+<ul class="simple">
+<li>very short quick start project (you need install nothing except python)</li>
+</ul>
+<div class="section" id="example-of-use">
+<h2>Example of use<a class="headerlink" href="#example-of-use" title="Permalink to this headline"> </a></h2>
+<p>You can directly erect scaffolding <strong>without installing nothing on your system</strong>.</p>
+<p>Example, if you want erect <a class="reference external" href="https://github.com/harobed/python_package_scaffolding">Python package scaffolding</a>
+scaffolding then <strong>Paste that at a Terminal prompt</strong> :</p>
+<div class="highlight-python"><pre>$ python -c "$(curl -fsSL https://raw.github.com/harobed/echafaudage/master/echafaudage.py)" -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project</pre>
+</div>
+<p>Next <em>echafaudage</em> ask some questions :</p>
+<div class="highlight-python"><pre>mail : contact@stephane-klein.info
+version : 0.1.0
+package_name : my-project
+author : Stéphane Klein</pre>
+</div>
+<p>Now your project is in <tt class="docutils literal"><span class="pre">/tmp/my_new_project/</span></tt></p>
+<div class="highlight-python"><pre>$ ls /tmp/my_new_project/
+bootstrap.py  devel-requirements.txt  my_project  requirements.txt  setup.py  tests  unittest.cfg</pre>
+</div>
+</div>
+<div class="section" id="you-can-also-install-echafaudage-on-your-system">
+<h2>You can also install &#8220;echafaudage&#8221; on your system<a class="headerlink" href="#you-can-also-install-echafaudage-on-your-system" title="Permalink to this headline"> </a></h2>
+<div class="highlight-python"><pre>$ pip install https://github.com/harobed/echafaudage/archive/master.zip</pre>
+</div>
+<p>And use <tt class="docutils literal"><span class="pre">echafaudage</span></tt> like this :</p>
+<div class="highlight-python"><pre>$ echafaudage -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project</pre>
+</div>
+<p>You can also directly set some variable in command line :</p>
+<div class="highlight-python"><pre>$ echafaudage -s https://github.com/harobed/python_package_scaffolding/archive/master.zip /tmp/my_new_project --vars project_name=my-project,version=1.0</pre>
+</div>
+</div>
+<div class="section" id="echafaudage-usage">
+<h2>echafaudage usage<a class="headerlink" href="#echafaudage-usage" title="Permalink to this headline"> </a></h2>
+<div class="highlight-python"><pre>$ bin/echafaudage --help
+Usage: echafaudage [options] -s &lt;scaffolding&gt; [&lt;TARGET&gt;]
+
+Arguments:
+    TARGET where scaffolding will be created, by default it is "." (current directory)
+
+
+Options:
+    -s, --scaffolding=&lt;scaffolding&gt; The scaffolding to use, can be a directory path,
+                                    an archive or archive url.
+    --vars=&lt;variables&gt;              Custom variables, e.g --vars hello=world,sky=blue
+    -h --help                       Show this screen.
+    -v, --verbose
+    --version
+
+
+Example:
+
+    $ echafaudage -s /path/to/directory/
+
+    or
+
+    $ echafaudage -s my_scaffolding.tar.gz
+
+    or
+
+    $ echafaudage -s http://example.com/my_scaffolding.tar.gz</pre>
+</div>
+</div>
+<div class="section" id="how-to-create-new-scaffolding">
+<h2>How to create new scaffolding<a class="headerlink" href="#how-to-create-new-scaffolding" title="Permalink to this headline"> </a></h2>
+<p>First, you can see <a class="reference external" href="https://github.com/harobed/python_package_scaffolding">Python package scaffolding</a>
+scaffolding example.</p>
+<p>In this repository :</p>
+<div class="highlight-python"><pre>.
+├── README.rst
+├── bootstrap.py
+├── devel-requirements.txt
+├── requirements.txt
+├── scaffolding.json               &lt;= scaffolding configuration file
+├── setup.py.tmpl                  &lt;= template file
+├── tests
+│   └── test_basic.py
+├── unittest.cfg
+└── {{package_name_underscore}}    &lt;= this folder is renamed with "package_name_underscore" variable value
+    └── __init__.py.tmpl           &lt;= template file</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">{{package_name_underscore}}/__init__.py.tmpl</span></tt> content :</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">__version__</span> <span class="o">=</span> <span class="s">&#39;{{version}}&#39;</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">The file with <tt class="docutils literal"><span class="pre">.tmpl</span></tt> extension are templates files.</div>
+<div class="line">Template file are parsed by <a class="reference external" href="http://pythonpaste.org/tempita/">tempita</a> template engine with variables
+pass to <em>echafaudage</em>.</div>
+<div class="line">The <tt class="docutils literal"><span class="pre">.tmpl</span></tt> extension is stripped in target folder.</div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">scaffolding.json</span></tt> (json format) configure the variable list :</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;variables&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;package_name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;author&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;mail&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;package_name_underscore&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;lambda&quot;</span><span class="p">:</span> <span class="s">&quot;vars[&#39;package_name&#39;].replace(&#39;-&#39;, &#39;_&#39;)&quot;</span>
+        <span class="p">},</span>
+        <span class="s">&quot;version&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;default&quot;</span><span class="p">:</span> <span class="s">&quot;0.1.0&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s">&quot;ignores&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&quot;README.rst&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>&#8220;variables&#8221; is dict with the list of variables</li>
+<li>&#8220;ignores&#8221; is a list with the list of file to ignore</li>
+</ul>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline"> </a></h2>
+<p>If you want more powered scaffolding tool, you can look at <a class="reference external" href="http://mrbob.readthedocs.org/en/latest/index.html">mr.bob</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <a href="http://github.com/harobed/echafaudage"><img style="position: fixed; top: 0; right: 0; border: 0;"
+    src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+  
+
+  
+  </div>
+  
+
+  </body>
+</html>
