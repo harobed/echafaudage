@@ -5,3 +5,4 @@ lib/
 echafaudage.egg-info/
 .Python
 tests/results/
+docs/_build/
