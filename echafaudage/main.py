@@ -155,7 +155,11 @@ def main():
         archive_file.close()
 
         if archive_type == '.tar.gz':
-            scaffolding_source = os.path.join(tmp_dir, 'content')
+            scaffolding_source = os.path.join(
+                tmp_dir,
+                'content',
+                os.listdir(os.path.join(tmp_dir, 'content'))[0]
+            )
         elif archive_type == '.zip':
             scaffolding_source = os.path.join(
                 tmp_dir,
