@@ -52,7 +52,7 @@ You can also install "echafaudage" on your system
 
 ::
 
-    $ pip install https://github.com/harobed/echafaudage/archive/master.zip
+    $ pip install echafaudage
   
 And use ``echafaudage`` like this :
 
@@ -164,3 +164,4 @@ See also
 
 If you want more powered scaffolding tool, you can look at `mr.bob <http://mrbob.readthedocs.org/en/latest/index.html>`_.
 
+More information about Python Skeleton Builder Tools see this wiki page : https://wiki.python.org/moin/SkeletonBuilderTools
