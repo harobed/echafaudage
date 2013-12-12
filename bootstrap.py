@@ -49,11 +49,6 @@ def local_after_install(options, home_dir):
 
     rmtree(tmp_dir)
 
-    subprocess_call([
-        path_join('bin', 'pip'),
-        'install', '-r', 'devel-requirements.txt'
-    ])
-
 # Monkey patch
 virtualenv.adjust_options = local_adjust_options
 virtualenv.after_install = local_after_install
